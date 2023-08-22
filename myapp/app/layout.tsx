@@ -6,7 +6,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link rel="stylesheet" href="globals.css"/>
+      </head>
       <body>
         <main>
           <nav>

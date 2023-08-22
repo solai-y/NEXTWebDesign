@@ -1,7 +1,7 @@
 import { create } from "domain";
 
 async function getNotes() {
-    const res = await fetch('http://127.0.0.1:8090/api/collections/Notes/records?page=1&perPage=30');
+    const res = await fetch('http://127.0.0.1:8090/api/collections/Notes/records?page=1&perPage=30', {cache: 'no-store'});// the cache no store is to ensure that the items are refreshed every time info is pulled from the database
     const data = await res.json();
     // above line converts the data into json
     return data?.items as any[];
@@ -9,7 +9,7 @@ async function getNotes() {
 
 }
 
-export default async function NotesPage(){
+export default async function NotePage(){
 
     const notes = await getNotes();// waits for a note to be available
     return (
