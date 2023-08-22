@@ -1,4 +1,6 @@
 import { create } from "domain";
+import CreateNote from "./CreateNote";
+// "/Users/solaiymeyapan/Documents/GitHub/NEXTWebDesign/myapp/app/notes/CreateNote"
 
 async function getNotes() {
     const res = await fetch('http://127.0.0.1:8090/api/collections/Notes/records?page=1&perPage=30', {cache: 'no-store'});// the cache no store is to ensure that the items are refreshed every time info is pulled from the database
@@ -22,6 +24,7 @@ export default async function NotePage(){
                     })
                 }
             </div>
+            <CreateNote />
         </div>
     );
 
