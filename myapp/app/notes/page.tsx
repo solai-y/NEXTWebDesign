@@ -33,7 +33,7 @@ export default async function NotePage(){
 function Note({note}: any) {
     const {id, Title, Content, created} = note || {};
     return (
-        <a href={"notes/${id}"}>
+        <a href={`notes/${id}`}>
             <div>
                 <h2>{Title}</h2>
                 <h5>{Content}</h5>

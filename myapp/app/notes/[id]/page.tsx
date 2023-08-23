@@ -1,8 +1,8 @@
 async function getNote(noteID: string) {
     const res = await fetch(
-            "http://127.0.0.1:8090/api/collections/Notes/records/${noteID}", 
+            `http://127.0.0.1:8090/api/collections/Notes/records/${noteID}`, // use back ticks for dynamic fetching
             {
-                next: {revalidate: 10},
+                next: {revalidate: 10}, // to get it to automatically check again every 10 seconds
             }
     );
     const data = await res.json();
@@ -14,9 +14,9 @@ export default async function NotePage({params}: any) {
     return (
         <div>
             <h1>Notes/{note.id}</h1>
-            <div className={style.note}>
-                <h3>{note.title}</h3>
-                <h5>{note.content}</h5>
+            <div>
+                <h3>{note.Title}</h3>
+                <h5>{note.Content}</h5>
                 <p>{note.created}</p>
             </div>
         </div>
